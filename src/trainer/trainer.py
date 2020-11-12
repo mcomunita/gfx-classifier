@@ -36,7 +36,7 @@ def train_fx_net(model, optimizer, train_loader, train_sampler, epoch, loss_func
                  preds[idx].argmax().item(),
                  labels[idx].item()))
         
-        if batch_idx > 0 and batch_idx % 20 == 0:
+        if batch_idx > 0 and batch_idx % 50 == 0:
             print('Train Epoch: {}\t[{}/{} ({:.0f}%)]\tTotal Loss: {:.4f}\tAvg Loss: {:.4f}'.format(
                         epoch, # epoch
                         batch_idx * len(labels), 
@@ -164,7 +164,7 @@ def train_settings_net(model, optimizer, train_loader, train_sampler, epoch, los
                  np.round(preds[idx].detach().numpy(), 3),
                  np.round(settings[idx].detach().numpy(), 3)))
         
-        if batch_idx > 0 and batch_idx % 20 == 0:
+        if batch_idx > 0 and batch_idx % 50 == 0:
             print('Train Epoch: {}\t[{}/{} ({:.0f}%)]\tTotal Loss: {:.4f}\tAvg Loss: {:.4f}'.format(
                         epoch, # epoch
                         batch_idx * len(labels), 
@@ -290,7 +290,7 @@ def train_settings_cond_net(model, optimizer, train_loader, train_sampler, epoch
                  np.round(preds[idx].detach().numpy(), 3),
                  np.round(settings[idx].detach().numpy(), 3)))
         
-        if batch_idx > 0 and batch_idx % 20 == 0:
+        if batch_idx > 0 and batch_idx % 50 == 0:
             print('Train Epoch: {}\t[{}/{} ({:.0f}%)]\tTotal Loss: {:.4f}\tAvg Loss: {:.4f}'.format(
                         epoch,
                         batch_idx * len(labels), 
@@ -439,7 +439,7 @@ def train_multi_net(model, optimizer, train_loader, train_sampler, epoch,
                 np.round(preds_set[idx].detach().numpy(), 3),
                 np.round(settings[idx].detach().numpy(), 3)))
         
-        if batch_idx > 0 and batch_idx % 20 == 0:
+        if batch_idx > 0 and batch_idx % 50 == 0:
             print('Train Epoch: {}\t[{}/{} ({:.0f}%)]\tTotal Loss: {:.4f}\tAvg Loss: {:.4f}'.format(
                         epoch, # epoch
                         batch_idx * len(labels), 
@@ -501,8 +501,8 @@ def val_multi_net(model, val_loader, val_sampler, loss_function_fx=nn.CrossEntro
             loss_set = loss_function_set(preds_set, settings)
             loss = loss_fx + loss_set
 
-            total_fx_loss += loss_fx.item()
-            total_set_loss += loss_set.item()
+            total_loss_fx += loss_fx.item()
+            total_loss_set += loss_set.item()
             total_loss += loss.item()
             correct_fx = utils.get_num_correct_labels(preds_fx, labels)
             correct_set = utils.get_num_correct_settings(preds_set, settings)
@@ -683,7 +683,7 @@ def train_cond_nets(model_fx, model_set,
                 np.round(preds_set[idx].detach().numpy(), 3),
                 np.round(settings[idx].detach().numpy(), 3)))
     
-        if batch_idx > 0 and batch_idx % 20 == 0:
+        if batch_idx > 0 and batch_idx % 50 == 0:
             print('Train Epoch: {}\t[{}/{} ({:.0f}%)]\tTotal Loss: {:.4f}\tAvg Loss: {:.4f}'.format(
                         epoch, # epoch
                         batch_idx * len(labels), 
