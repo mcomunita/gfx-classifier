@@ -90,28 +90,26 @@ class FxDataset(Dataset):
             if os.path.isdir(os.path.join(self.root, folder)):
                 print('Working on folder:', folder)
 
-            if self.spectra_folder:
-                out_path = '%s/%s/%s' % (self.root, folder, spectra_folder)
-            else:
-                self.spectra_folder = '%s_%s_%s_%s' % ("mel", sr, n_fft, hop_length)
-                out_path = '%s/%s/%s' % (self.root, folder, self.spectra_folder)
+                if self.spectra_folder:
+                    out_path = '%s/%s/%s' % (self.root, folder, self.spectra_folder)
+                else:
+                    self.spectra_folder = '%s_%s_%s_%s' % ("mel", sr, n_fft, hop_length)
+                    out_path = '%s/%s/%s' % (self.root, folder, self.spectra_folder)
 
-            if not os.path.exists(out_path):
-                os.makedirs(out_path)
-                print('out_path: ', out_path)
-            else:
-                print('out_path: ', out_path, ' already exists!')
-                break
-            
-            for file in os.listdir('%s/%s' % (self.root, folder)):
-                if not(file.startswith("._")) and file.endswith(".wav"):
-                    filename = file[:-4]
-                    try:
-                        audio_file, sr = librosa.load("%s/%s/%s.wav" % (self.root, folder, filename), sr=sr)
-                        mel_file = librosa.feature.melspectrogram(audio_file, sr=sr, n_fft=n_fft, hop_length=hop_length)
-                        np.save(file=('%s/%s' % (out_path, filename)), arr=mel_file)
-                    except:
-                        print('error generate_mel:', file)
+                if not os.path.exists(out_path):
+                    os.makedirs(out_path)
+                    print('out_path: ', out_path)    
+                    for file in os.listdir('%s/%s' % (self.root, folder)):
+                        if not(file.startswith("._")) and file.endswith(".wav"):
+                            filename = file[:-4]
+                            try:
+                                audio_file, sr = librosa.load("%s/%s/%s.wav" % (self.root, folder, filename), sr=sr)
+                                mel_file = librosa.feature.melspectrogram(audio_file, sr=sr, n_fft=n_fft, hop_length=hop_length)
+                                np.save(file=('%s/%s' % (out_path, filename)), arr=mel_file)
+                            except:
+                                print('error generate_mel:', file)
+                else:
+                    print('out_path: ', out_path, ' already exists!')
 
         print('Generate MEL spectrogram complete')
         print('folder: %s' % self.spectra_folder)
@@ -147,8 +145,8 @@ class FxDataset(Dataset):
         for folder in sorted(os.listdir(self.root)):
             if os.path.isdir(os.path.join(self.root, folder)):
                 if not folder in self.excl_folders:
-                    for file in os.listdir('%s/%s' % (self.root, folder)):
-                        if not(file.startswith("._")) and file.endswith(".wav"):
+                    for file in os.listdir('%s/%s/%s' % (self.root, folder, self.spectra_folder)):
+                        if not(file.startswith("._")) and file.endswith(".npy"):
                             filename = file[:-4]
                             label = self.fx_to_label[folder]
                             self.audiosamples_labels.append((filename,label))
@@ -160,8 +158,8 @@ class FxDataset(Dataset):
         for folder in sorted(os.listdir(self.root)):
             if os.path.isdir(os.path.join(self.root, folder)):                
                 if not folder in self.excl_folders:
-                    for file in os.listdir('%s/%s' % (self.root, folder)):
-                        if not(file.startswith("._")) and file.endswith(".wav"):
+                    for file in os.listdir('%s/%s/%s' % (self.root, folder, self.spectra_folder)):
+                        if not(file.startswith("._")) and file.endswith(".npy"):
                             filename = file[:-4]
                             label = self.fx_to_label_oh[folder]
                             self.audiosamples_labels_oh.append((filename,label))
@@ -206,8 +204,8 @@ class FxDataset(Dataset):
         for folder in sorted(os.listdir(self.root)):
             if os.path.isdir(os.path.join(self.root, folder)):
                 if not folder in self.excl_folders:
-                    for file in os.listdir('%s/%s' % (self.root, folder)):
-                        if not(file.startswith("._")) and file.endswith(".wav"):
+                    for file in os.listdir('%s/%s/%s' % (self.root, folder, self.spectra_folder)):
+                        if not(file.startswith("._")) and file.endswith(".npy"):
                             filename = file[:-4]
                             settings = self.audiosample_to_settings[filename]
                             self.audiosamples_settings.append((filename,settings))
