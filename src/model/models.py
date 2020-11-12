@@ -21,37 +21,25 @@ class FxNet(nn.Module):
 
         # (2) hidden conv layer
         t = self.conv1(t)
-<<<<<<< HEAD
-=======
         t = self.batchNorm1(t)
->>>>>>> fxnet_bn
         t = F.relu(t)
         t = F.max_pool2d(t, kernel_size=2, stride=2)
 
         # (3) hidden conv layer
         t = self.conv2(t)
-<<<<<<< HEAD
-=======
         t = self.batchNorm2(t)
->>>>>>> fxnet_bn
         t = F.relu(t)
         t = F.max_pool2d(t, kernel_size=2, stride=2)
 
         # (4) hidden dense layer
         t = t.reshape(-1, 12*29*18)
         t = self.fc1(t)
-<<<<<<< HEAD
-=======
         t = self.batchNorm3(t)
->>>>>>> fxnet_bn
         t = F.relu(t)
         
         # (5) hidden dense layer
         t = self.fc2(t)
-<<<<<<< HEAD
-=======
         t = self.batchNorm4(t)
->>>>>>> fxnet_bn
         t = F.relu(t)
         
         # (6) output dense layer
