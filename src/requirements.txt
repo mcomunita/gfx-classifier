@@ -1,63 +1,56 @@
 appdirs==1.4.4
 appnope==0.1.0
-<<<<<<< HEAD
-=======
-attrs==20.1.0
->>>>>>> setnet
-audioread==2.1.8
+audioread==2.1.9
 backcall==0.2.0
-certifi==2020.6.20
-cffi==1.14.2
+certifi==2020.11.8
+cffi==1.14.3
 chardet==3.0.4
+cycler==0.10.0
+dataclasses==0.6
 decorator==4.4.2
 future==0.18.2
 idna==2.10
 ipykernel==5.3.4
-ipython==7.17.0
+ipython==7.19.0
 ipython-genutils==0.2.0
 jedi==0.17.2
-joblib==0.16.0
-<<<<<<< HEAD
-=======
-jsonschema==3.2.0
->>>>>>> setnet
-jupyter-client==6.1.6
+joblib==0.17.0
+jupyter-client==6.1.7
 jupyter-core==4.6.3
+kiwisolver==1.3.1
 librosa==0.8.0
 llvmlite==0.34.0
-<<<<<<< HEAD
-=======
-nbformat==5.0.7
->>>>>>> setnet
-numba==0.51.0
-numpy==1.19.1
+matplotlib==3.3.3
+numba==0.51.2
+numpy==1.19.4
 packaging==20.4
+pandas==1.1.4
 parso==0.7.1
 pexpect==4.8.0
 pickleshare==0.7.5
-Pillow==7.2.0
-pooch==1.1.1
-prompt-toolkit==3.0.6
+Pillow==8.0.1
+pooch==1.2.0
+prompt-toolkit==3.0.8
 ptyprocess==0.6.0
 pycparser==2.20
-Pygments==2.6.1
+Pygments==2.7.2
 pyparsing==2.4.7
-<<<<<<< HEAD
-=======
-pyrsistent==0.16.0
->>>>>>> setnet
 python-dateutil==2.8.1
-pyzmq==19.0.2
-requests==2.24.0
+pytz==2020.4
+pyzmq==20.0.0
+requests==2.25.0
 resampy==0.2.2
 scikit-learn==0.23.2
-scipy==1.5.2
+scipy==1.5.4
+seaborn==0.11.0
 six==1.15.0
+sklearn==0.0
 SoundFile==0.10.3.post1
 threadpoolctl==2.1.0
-torch==1.6.0
-torchvision==0.7.0
-tornado==6.0.4
-traitlets==4.3.3
-urllib3==1.25.10
+torch==1.7.0
+torchvision==0.8.1
+tornado==6.1
+traitlets==5.0.5
+typing-extensions==3.7.4.3
+urllib3==1.26.2
 wcwidth==0.2.5
