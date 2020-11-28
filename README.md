@@ -1,4 +1,4 @@
-# **GFX_CLASSIFIER**
+# **GUITAR EFFECTS CLASSIFIER**
 ## Guitar effects classification and parameters estimation with convolutional neural networks
 
 ![](img/pedals.jpg)
