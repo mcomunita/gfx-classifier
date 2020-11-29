@@ -55,7 +55,7 @@ def plot_confusion_matrix(cm, classes, normalize=False, title='Confusion matrix'
     plt.tight_layout()
 
 def box_plot(error_dataframe, title, title_fontsize=20, text_fontsize=16):
-    ax = sns.boxplot(x="variable", y="value", data=pd.melt(error_dataframe), width=0.3, showfliers = False, fliersize=2)
+    ax = sns.boxplot(x="variable", y="value", data=pd.melt(error_dataframe), width=0.5, showfliers = False, fliersize=2)
 
     plt.title(title, fontsize=title_fontsize)
 
@@ -93,7 +93,6 @@ def scatter_plot(x, y, dataframe, title, xlabel, ylabel, title_fontsize=20, text
     return ax
 
 def line_plot(x_gain, x_tone, y_gain, y_tone, xlabel, ylabel, title, title_fontsize=20, text_fontsize=16):
-    plt.figure()
     plt.rc('grid', linestyle="--", linewidth=0.5)
 
     plt.plot(x_gain, y_gain, linestyle='-', linewidth=1, marker='o')
