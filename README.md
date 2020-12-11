@@ -13,4 +13,15 @@ Add citation
 
 # **Dataset**
 
-Add link
+[https://doi.org/10.5281/zenodo.4296040](https://doi.org/10.5281/zenodo.4296040)
+
+[https://doi.org/10.5281/zenodo.4298000](https://doi.org/10.5281/zenodo.4298000)
+
+[https://doi.org/10.5281/zenodo.4298017](https://doi.org/10.5281/zenodo.4298017)
+
+[https://doi.org/10.5281/zenodo.4298025](https://doi.org/10.5281/zenodo.4298025)
+
+
+# **Models and Results**
+
+[https://github.com/mcomunita/gfx_classifier_models_and_results](https://github.com/mcomunita/gfx_classifier_models_and_results)
