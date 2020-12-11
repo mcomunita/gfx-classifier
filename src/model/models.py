@@ -9,10 +9,14 @@ class FxNet(nn.Module):
         self.n_classes = n_classes # number of fx labels
 
         self.conv1 = nn.Conv2d(in_channels=1, out_channels=6, kernel_size=5)
+        self.batchNorm1 = nn.BatchNorm2d(num_features=6)
         self.conv2 = nn.Conv2d(in_channels=6, out_channels=12, kernel_size=5)
+        self.batchNorm2 = nn.BatchNorm2d(num_features=12)
         
         self.fc1 = nn.Linear(in_features=12*29*18, out_features=120)
+        self.batchNorm3 = nn.BatchNorm1d(num_features=120)
         self.fc2 = nn.Linear(in_features=120, out_features=60)
+        self.batchNorm4 = nn.BatchNorm1d(num_features=60)
         self.out = nn.Linear(in_features=60, out_features=self.n_classes)
 
     def forward(self, t):
