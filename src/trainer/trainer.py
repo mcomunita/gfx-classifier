@@ -266,6 +266,7 @@ def train_settings_cond_net(model, optimizer, train_loader, train_sampler, epoch
 
     for batch_idx, data in enumerate(train_loader):
         mels, labels, settings, filenames, indeces = data
+        mels = mels.unsqueeze(1)
         
         mels = mels.to(device)
         labels = labels.to(device)
@@ -320,6 +321,7 @@ def val_settings_cond_net(model, val_loader, val_sampler, loss_function=nn.L1Los
     with torch.no_grad():
         for batch_idx, data in enumerate(val_loader): # Get Batch
             mels, labels, settings, filenames, indeces = data
+            mels = mels.unsqueeze(1)
             
             mels = mels.to(device)
             labels = labels.to(device)
@@ -360,6 +362,7 @@ def test_settings_cond_net(model, test_loader, test_sampler, loss_function=nn.L1
     with torch.no_grad():
         for batch_idx, data in enumerate(test_loader):
             mels, labels, settings, filenames, indeces = data
+            mels = mels.unsqueeze(1)
 
             mels = mels.to(device)
             labels = labels.to(device)

@@ -185,7 +185,7 @@ class SettingsNetCond(nn.Module):
         self.embedding_dim = embedding_dim
 
         self.emb = nn.Embedding(num_embeddings=num_embeddings, embedding_dim=embedding_dim)
-        self.fc0 = nn.Linear(in_features=embedding_dim, out_features=self.mel_shape[1] * self.mel_shape[2])
+        self.fc0 = nn.Linear(in_features=embedding_dim, out_features=self.mel_shape[0] * self.mel_shape[1])
 
         self.conv1 = nn.Conv2d(in_channels=2, out_channels=6, kernel_size=5)
         self.batchNorm1 = nn.BatchNorm2d(num_features=6)
@@ -204,7 +204,7 @@ class SettingsNetCond(nn.Module):
         # (0.2) dense
         c = self.fc0(c)
         # transform
-        c = c.reshape(-1, 1, self.mel_shape[1], self.mel_shape[2])
+        c = c.reshape(-1, 1, self.mel_shape[0], self.mel_shape[1])
 
         # (1) input layer
         t = torch.cat((t, c), dim=1)
