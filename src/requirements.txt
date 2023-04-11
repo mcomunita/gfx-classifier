@@ -3,4 +3,4 @@ pandas==1.2.3
 seaborn==0.11.1
 matplotlib==3.4.1
 numpy==1.19.5
-torch==1.8.1
+torch==1.13.1
