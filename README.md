@@ -24,7 +24,7 @@ Despite the popularity of guitar effects, there is very little existing research
 [https://github.com/mcomunita/gfx_classifier_models_and_results](https://github.com/mcomunita/gfx_classifier_models_and_results)
 
 ## **Extended results**
-[https://mcomunita.github.io/gfx_classifier_page](https://mcomunita.github.io/gfx_classifier_page)
+[https://mcomunita.github.io/gfx_classifier_page](https://mcomunita.github.io/gfx-classifier_page)
 
 ## **Cite**
 ```
